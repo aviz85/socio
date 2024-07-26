@@ -40,7 +40,7 @@ class ActivityViewSet(viewsets.ModelViewSet):
         feed = FeedService.get_feed(request.user, page=page)
         serializer = self.get_serializer(feed, many=True)
         return Response(serializer.data)
-        
+           
 class FeedAlgorithmViewSet(viewsets.ModelViewSet):
     queryset = FeedAlgorithm.objects.all()
     serializer_class = FeedAlgorithmSerializer

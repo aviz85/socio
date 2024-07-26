@@ -25,11 +25,16 @@ class LikeSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'content_type', 'object_id', 'created_at']
         read_only_fields = ['user']
 
-class ActivitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Activity
-        fields = ['id', 'user', 'content_type', 'object_id', 'action', 'created_at']
-
+class ActivitySerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    object_id = serializers.IntegerField()
+    content = serializers.CharField()
+    created_at = serializers.DateTimeField()
+    algorithm_rank = serializers.FloatField(required=False)
+    recency_score = serializers.FloatField(required=False)
+    combined_rank = serializers.FloatField(required=False)
+    rank = serializers.FloatField(required=False)  # Keep this for backwards compatibility
+     
 class FeedAlgorithmSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedAlgorithm
