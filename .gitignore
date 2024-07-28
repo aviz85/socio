@@ -48,6 +48,9 @@ Temporary Items
 # VSCode
 .vscode/
 
+*/migrations/*
+!*/migrations/__init__.py
+
 # Environment variables
 .env
 
